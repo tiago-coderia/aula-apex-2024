@@ -7,7 +7,7 @@ const authRoutes = async (fastify: FastifyInstance) => {
     const { email, password } = request.body as ILogin;
 
     if (!email || !password) {
-      return response.status(404).send({
+      return response.status(400).send({
         message: 'Usuário não encontrado!',
       });
     }
@@ -29,7 +29,7 @@ const authRoutes = async (fastify: FastifyInstance) => {
     });
 
     if (!user || user.password != password) {
-      return response.status(404).send({
+      return response.status(400).send({
         message: 'Usuário não encontrado!',
       });
     }

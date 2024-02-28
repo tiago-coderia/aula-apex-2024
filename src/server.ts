@@ -9,7 +9,7 @@ dotenv.config();
 
 const server = fastify();
 server.register(fastifyCors, {
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  // methods: ['GET', 'POST', 'PUT', 'DELETE'],
   origin: '*',
 });
 server.register(jwt, {

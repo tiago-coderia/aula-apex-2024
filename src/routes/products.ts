@@ -12,7 +12,8 @@ const productRoutes = async (fastify: FastifyInstance) => {
 
     let user: any = null;
     try {
-      user = fastify.jwt.verify(token);
+      user = fastify.jwt.verify(token.replace('Bearer ', ''));
+      
     } catch (error) {
       return response.status(401).send({
         message: 'Token Inválido!',
